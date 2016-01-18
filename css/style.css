@@ -1,0 +1,309 @@
+body {
+	width:100%;
+	height:100%;
+	margin: 0px;
+	padding: 0px;
+	line-height: 2.2em;
+	font-size: 10px;
+	color: #000000;
+	background: #00000;
+	
+	
+	
+}
+
+
+a:link, a:visited { color: #000; text-decoration: none; font-weight: normal;} 
+a:active, a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+
+
+/*img {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}*/
+
+/* end of header */
+
+/* banner */
+
+#header {
+	width: 100%;
+	max-height:400px;	
+	background-color: #333;
+	color: #CCC;
+	
+}
+
+
+#header2{	
+	heigth:100px;
+	padding:40px;
+	position:relative;
+	top:40px;
+	font-size:17px;
+	background-color: #CCC;
+		
+}
+
+/* end of banner */
+
+
+
+
+/* menu */
+#backgroundMenu{
+	width: 90%;
+	height: 50px;
+	position: absolute;
+	top: 100px;
+	left: 82px;
+	background-color: #666;
+}
+
+#backgroundMenuStaff{
+	width: 980px;
+	height: 50px;
+	position: absolute;
+	top: 100px;
+	left: 182px;
+	background-color: #666;
+}
+
+
+#menu {
+	
+	width: 90%;		
+	font-family: Calibri;
+	/*padding-right: 55px;	
+	padding-left: 55px;*/
+	background-color: #666;
+	
+}
+
+#menu ul {	
+	margin: 0px;
+	padding: 0px;	
+	list-style: none;
+	z-index:100;
+}
+
+#menu ul li{
+	padding: 0px;
+	margin: 0px;
+	float:left;	
+	position: relative;
+}
+
+#menu ul li a{
+	/*float: left; boleh buang*/ 
+	display: block;
+	width: 138px;
+	height: 40px;
+	padding: 10px 0 0 0;
+	background-color: #666;	
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight:normal;
+	line-height: 2.2em;
+	letter-spacing:2px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	border-left: 1px solid;
+	border-left-color: #FFFFFF;
+	border-right: 1px solid;
+	border-right-color: #FFFFFF;	
+}
+
+#menu ul ul{
+	position: absolute;
+	display:none;/*hide menu child */
+	
+}
+
+#menu ul li:hover ul{
+	display: block; /*displayed bila over parent li:hover*/
+	
+	
+}
+
+#menu li a:hover, #menu li .current{
+	background-color: #999;
+	
+}
+
+#login {
+	
+	width: 82%;		
+	font-family: Calibri;
+	
+	padding-left:200px;
+	background-color: #666;
+	
+}
+
+#login ul {	
+	margin: 0px;
+	padding: 0px;	
+	list-style: none;
+}
+
+#login ul li{
+	padding: 0px;
+	margin: 0px;
+	float:right;	
+	position: relative;
+}
+
+#login ul li a{
+	/*float: left; boleh buang*/ 
+	display: block;
+	width: 138px;
+	height: 40px;
+	padding: 10px 0 0 0;
+	background-color: #666;	
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight:normal;
+	line-height: 2.2em;
+	letter-spacing:2px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	border-left: 1px solid;
+	border-left-color: #FFFFFF;
+	border-right: 1px solid;
+	border-right-color: #FFFFFF;	
+}
+#login li a:hover, #login li .current{
+	background-color: #999;
+	
+}
+
+#menuStaff {
+	font-family: Calibri;
+	/*padding-right: 55px;	
+	padding-left: 55px;*/
+	background-color: #666;
+	
+}
+
+#menuStaff ul {	
+	margin: 0px;
+	padding: 0px;	
+	list-style: none;
+	z-index:200;
+}
+
+#menuStaff ul li{
+	padding: 0px;
+	margin: 0px;
+	float:left;	
+	position: relative;
+}
+
+#menuStaff ul li a{
+	/*float: left; boleh buang*/ 
+	display: block;
+	width: 138px;
+	height: 40px;
+	padding: 10px 0 0 0;
+	background-color: #666;	
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight:normal;
+	line-height: 2.2em;
+	letter-spacing:2px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	border-left: 1px solid;
+	border-left-color: #FFFFFF;
+	border-right: 1px solid;
+	border-right-color: #FFFFFF;	
+}
+
+#menuStaff ul ul{
+	position: absolute;
+	display:none;/*hide menu child */
+	
+}
+
+#menuStaff ul li:hover ul{
+	display: block; /*displayed bila over parent li:hover*/
+	
+	
+}
+
+#menuStaff li a:hover, #menuStaff li .current{
+	background-color: #999;
+	
+}
+
+
+/* end of menu */
+
+#content {
+	
+	width: 100%;
+	position:relative;
+	top:30px;
+	font: "Comic Sans MS";
+	font-size:16px;
+	background: white;
+}
+
+#sidebar{
+	margin:15px;
+	padding:5px;
+	width: 40px;
+	position:absolute;
+	top: 15px;
+	left:925px;
+	height:23px;
+	background:#999;
+	color:#FFF;
+	
+}
+
+/* end of content */
+
+/* footer */
+#kaki {
+	clear:both;
+	position:relative;
+	bottom:-50px;
+	height: 20px;	
+	padding: 33px;
+	
+	/*text-align: left;*/
+	font-family: Calibri;
+	font-size: 15px;
+	color: #FFFF;
+	background: #666;
+	
+	
+	
+}
+
+#kaki a {
+	color: #999;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+/* end of footer */
+.fontputih {
+	color: #FFF;
+}
+.fontcolorgrey {
+	color: #999;
+}
+.fontcalibri {
+	font-family: Calibri;
+}
