@@ -49,16 +49,23 @@ require_once('Conn/dbconn.php');
 					<th width="25" colspan="2">Harga Yang ditawarkan untuk potostat</th>
 				</tr>
 				<tr style="overflow:scroll;">
-			        <td align="">50 page keatas</td>
-					<td align="center">0.08 sen</td>   
+			        <td align="">15 page and above</td>
+					<td align="center">0.09 sen</td>   
 				</tr>
 				<tr style="overflow:scroll;">
-			        <td align="">100 page keatas</td>
-					<td align="center">0.06 sen</td>   
+			        <td align="">50 page and above</td>
+					<td align="center">0.07 sen</td>   
 				</tr>
 				<tr style="overflow:scroll;">
-			        <td align="">1000 page keatas</td>
-					<td align="center">0.80 sen</td>   
+			        <td align="">100 page and above</td>
+					<td align="center">0.05 sen</td>   
+				</tr>
+				<tr style="overflow:scroll;">
+			        <td align="">1000 page and above</td>
+					<td align="center">0.04 sen</td>   
+				</tr>
+				<tr style="overflow:scroll;">
+			        <td align="" colspan="2"><i>Attentions!!! If booked items did't claimed in such a period of 1 - 2 weeks, compound will be charged!!</i> </td>   
 				</tr>
 			</table>
 		</td>

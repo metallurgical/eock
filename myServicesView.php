@@ -11,6 +11,7 @@
 					<th>File Name</th>		
 					<th>Size of File</th>
 					<th>Download</th>
+					<th>Price</th>
 					<th>Action</th>
 				</tr>
 			<?php 	
@@ -28,14 +29,19 @@
 					<td><?php echo $data['service_file_size']; ?> kb</td>
 					<td>
 					<a href="myServiceDownload.php?service_file_id=<?php echo $data['service_file_id']; ?>">Download</a></td>
+					<td>RM <?php echo $data['service_file_price']; ?></td>
 			        <td> 
 			        	
 			        	<a href="myServicesDelete.php?service_file_id=<?php echo $data['service_file_id']; ?>&btnId=<?php echo $_REQUEST['btnId']; ?>" onclick="return confirm('Are you sure to delete this ???' );">
 			        		<input type="button" name="delOrder" value="Delete"/>
 			        	</a>
+			        	<?php
+			        	if ( $_REQUEST['status'] == 0 ) {?>
 			        	<a href="studentServiceUploadFormUpdate.php?service_id=<?php echo $data['service_id']; ?>&service_file_id=<?php echo $data['service_file_id']; ?>">
         					<input type="button" name="delOrder" value="Update"/></a>
-			        	</td> 
+			        	</td>
+			        	<?php
+			        	} ?>
 				</tr>
 			<?php }?>
 			<!-- </table>

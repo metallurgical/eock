@@ -21,7 +21,7 @@ if ( !isset( $_SESSION['category'] ) ) { //*************************************
                     ?>
                 </ul>
             </li>
-            <li><a href="Service.php">Service</a>
+            <li><a href="service.php">Service</a>
                 <ul>
                     <li><a href="Printer.php">Printer</a></li>
                     <li><a href="Photostat.php">Photostat</a></li>
@@ -110,7 +110,7 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category']== 'student' ) 
                     ?>
                 </ul>
             </li>
-            <li><a href="#">Service</a>
+            <li><a href="service.php">Service</a>
                 <ul>
                     <li><a href="studentServices.php?cat=print">Printer</a></li>
                     <li><a href="studentServices.php?cat=fotostat">Photostat</a></li>
@@ -152,7 +152,7 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category'] != 'admin' ) {
                 </ul>
             </li>
             </li>
-            <li><a href="Servis.php">Servis</a>
+            <li><a href="service.php">Servis</a>
                 <ul>
                     <li><a href="Printer.php">Printer</a></li>
                     <li><a href="Photostat.php">Photostat</a></li>

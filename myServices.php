@@ -38,7 +38,7 @@ require_once('Conn/dbconn.php');
 	<tr bgcolor="#FF9900">
 		<th>No.</th>
 		<th>Jabatan</th>		
-		<th>No of Copy</th>
+		<th>Service Date</th>
 		<th>Category</th>
 		<th>Status</th>
 		<th>Action</th>
@@ -56,7 +56,7 @@ while( $data = mysql_fetch_array( $query ) ) {
 ?> 
 	<tr style="overflow:scroll;"><td><?php echo $i+1; ?></td>		
 		<td><?php echo $data['service_jabatan']; ?></td>        
-		<td><?php echo $data['service_copy']; ?></td>       
+		<td><?php echo $data['servis_date_created']; ?></td>
 		<td><?php echo $data['service_cat']; ?></td>
 		<td><?php 
 		if ( $data['service_status'] == 0 ) {
@@ -66,7 +66,7 @@ while( $data = mysql_fetch_array( $query ) ) {
 			echo 'Siap';
 		} ?></td>
         <td> 
-        	<a href="myServicesView.php?service_id=<?php echo $data['service_id']; ?>&jabatan=<?php echo $data['service_jabatan']; ?>&cat=<?php echo $data['service_cat']; ?>&btnId=btn<?php echo $k++; ?>" params="lightwindow_width=700,lightwindow_height=350" class="lightwindow page-options" id="btn<?php echo $j++; ?>">
+        	<a href="myServicesView.php?service_id=<?php echo $data['service_id']; ?>&jabatan=<?php echo $data['service_jabatan']; ?>&cat=<?php echo $data['service_cat']; ?>&status=<?php echo $data['service_status']; ?>&btnId=btn<?php echo $k++; ?>" params="lightwindow_width=700,lightwindow_height=350" class="lightwindow page-options" id="btn<?php echo $j++; ?>">
         		<input type="button" name="viewOrder" value="View"/>
         	</a> |
         	<a href="myServiceDeleteService.php?service_id=<?php echo $data['service_id']; ?>" onclick="return confirm('Are you sure to delete this ???' );">

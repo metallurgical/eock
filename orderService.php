@@ -38,7 +38,7 @@ require_once('Conn/dbconn.php');
 	<tr bgcolor="#FF9900">
 		<th>No.</th>
 		<th>Jabatan</th>		
-		<th>No of Copy</th>
+		<th>Service Date</th>
 		<th>Category</th>
 		<th>Status</th>
 		<th>Action</th>
@@ -56,7 +56,7 @@ while( $data = mysql_fetch_array( $query ) ) {
 ?> 
 	<tr style="overflow:scroll;"><td><?php echo $i+1; ?></td>		
 		<td><?php echo $data['service_jabatan']; ?></td>        
-		<td><?php echo $data['service_copy']; ?></td>       
+		<td><?php echo $data['servis_date_created']; ?></td>       
 		<td><?php echo $data['service_cat']; ?></td>
 		<td><?php 
 		if ( $data['service_status'] == 0 ) {

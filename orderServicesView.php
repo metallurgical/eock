@@ -9,6 +9,7 @@ List of Files
 					<th>File Name</th>		
 					<th>Size of File</th>
 					<th>Download</th>
+					<th>Price</th>
 					<th>Action</th>
 				</tr>
 			<?php 	
@@ -26,6 +27,7 @@ List of Files
 					<td><?php echo $data['service_file_size']; ?> kb</td>
 					<td>
 					<a href="myServiceDownload.php?service_file_id=<?php echo $data['service_file_id']; ?>">Download</a></td>
+					<td>RM <?php echo $data['service_file_price']; ?></td>
 			        <td> 
 			        	
 			        	<a href="orderServicesDelete.php?service_file_id=<?php echo $data['service_file_id']; ?>&btnId=<?php echo $_REQUEST['btnId']; ?>" onclick="return confirm('Are you sure to delete this ???' );">

@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set('Asia/Kuala_Lumpur');
 require_once('Conn/dbconn.php');
-$jabatan = isset( $_REQUEST['id'][0] ) ? $_REQUEST['id'][0] : $_REQUEST['jabatan'];
+@$jabatan = isset( $_REQUEST['id'][0] ) ? $_REQUEST['id'][0] : $_REQUEST['jabatan'];
 
 if ( isset( $_POST['hantar'] ) ) {
 	extract($_POST);
@@ -11,10 +11,10 @@ if ( isset( $_POST['hantar'] ) ) {
 	$type     = $_FILES['myFile']['type'];
 	$tmp_name = $_FILES['myFile']['tmp_name'];
 
-	$h        = fopen($tmp_name, 'r');
-	$content  = fread($h, filesize($tmp_name));
-	$content1 = addslashes($content);
-	fclose($h);
+	$h        = @fopen($tmp_name, 'r');
+	$content  = @fread($h, filesize($tmp_name));
+	$content1 = @addslashes($content);
+	@fclose($h);
 
 	if(($type=="image/jpeg")||($type=="image/png")||($type=="image/bmp")||($type=="image/gif"))	{
 		echo '<script type="text/javascript">';
@@ -28,14 +28,12 @@ if ( isset( $_POST['hantar'] ) ) {
 			$sql  = "INSERT INTO services ( 
                           student_id, 
                           service_jabatan,
-                          service_copy,
                           service_cat,
                           service_status,
                           servis_date_created
                       ) VALUES( 
                           '".$_SESSION['user_id']."', 
                           '".$jabatan. "',
-                          '".$service_copy."',
                           '".$cat."',
                           '0',
                           '".date('Y-m-d H:i:s')."')";
@@ -47,7 +45,7 @@ if ( isset( $_POST['hantar'] ) ) {
 
         $sm = $datassss['student_noMatric'];
 
-        require 'phpmailer/PHPMailerAutoload.php';
+        /*require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer;
         $body = "Service have been ordered by Student with Matric No $sm at ".date('d-m-y H:i:s');
         $mail->SMTPAuth = true; 
@@ -63,7 +61,7 @@ if ( isset( $_POST['hantar'] ) ) {
         $mail->addAddress('alamat_email_gmail', 'Administrator'); // ubah hok ni
         $mail->Subject = 'New message from student order[product]'; 
         $mail->MsgHTML($body);
-        $mail->send();
+        $mail->send();*/
 
 		}
 		else {
@@ -72,13 +70,23 @@ if ( isset( $_POST['hantar'] ) ) {
 		
 
 		$sql1  = "INSERT INTO service_files ( 
-                          service_id, 
+                          service_id,
+                          service_file_copy,
+                          service_file_page,
+                          service_file_cat,
+                          service_file_color,
+                          service_file_price,
                           service_file_name,
                           service_file_size,
                           service_file_type,
                           service_file_content
-                      ) VALUES( 
+                      ) VALUES(
                           '".$lastId."', 
+                          '".$service_copy. "',
+                          '".$service_page."',
+                          '".$cat."',
+                          '".$service_color."',
+                          '".$service_price."', 
                           '".$name. "',
                           '".$size."',
                           '".$type."',
@@ -103,7 +111,7 @@ if ( isset( $_POST['hantar'] ) ) {
 <title>EOCK</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
 </head>
 
 <body>
@@ -139,9 +147,31 @@ if ( isset( $_POST['hantar'] ) ) {
                 <td><input type="file" name="myFile"></td>
               </tr>
               <tr>
+                <td>No of Page</td>
+                <td>:</td>
+                <td><input type="text" name="service_page" required value="1" /></td>
+              </tr>
+              <tr>
                 <td>No of Copy</td>
                 <td>:</td>
-                <td><input type="text" name="service_copy" required/></td>
+                <td><input type="text" name="service_copy" required value="1"/></td>
+              </tr>
+              <tr>
+                <td>Printed Color</td>
+                <td>:</td>
+                <td>
+                  <select name="service_color">
+                      <option value="">--Please Select--</option>
+                      <option value="Color">Color</option>
+                      <option value="Black and White">Black and White</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>:</td>
+                <td>RM <input type="text" name="service_price" readonly size="5"/>
+                      </td>
               </tr>
                                 
               <tr>
@@ -149,7 +179,7 @@ if ( isset( $_POST['hantar'] ) ) {
               </tr>
               <tr>
                 <td colspan="3" align="center">
-                	<input type="hidden" name="cat" value="<?php echo $_REQUEST['cat']; ?>"/>
+                	<input type="hidden" name="cat" value="<?php echo $_REQUEST['cat']; ?>" id="cat"/>
                 	<input type="hidden" name="jabatan" value="<?php echo $jabatan; ?>"/>
                 	<?php
                 	if ( isset($_REQUEST['lastId'])) {?>
@@ -166,49 +196,63 @@ if ( isset( $_POST['hantar'] ) ) {
 	  </table>
       
   </form>
-<!-- <form action="studentServicesUploadForm.php" method="post" name="orderBoh">
-<table width="720" align="center" bordercolor="#FF9900">
-	<tr>
-		<td width="566">
-			<table width="698" align="center"  cellpadding="2" cellspacing="2">
-				<tr bgcolor="#FF9900">
-					
-					<th width="33">No.</th>
-					<th width="229">Department</th>
-				</tr>
-				<tr style="overflow:scroll;">
-			        <td align="center"><input type="checkbox" name="id[]" value="jtmk" /> 1</td>
-					<td align="center">Jabatan teknologi Maklumat Dan Komunikasi</td>	
-				</tr>
-				<tr style="overflow:scroll;">
-			        <td align="center"><input type="checkbox" name="id[]" value="jke" /> 2</td>
-					<td align="center">Jabatan Kejuteraan Elektrik</td>	
-				</tr>
-				<tr style="overflow:scroll;">
-			        <td align="center"><input type="checkbox" name="id[]" value="jkm" /> 3</td>
-					<td align="center">Jabatan Kejuteraan Mekanikal</td>	
-				</tr>
-				<tr style="overflow:scroll;">
-			        <td align="center"><input type="checkbox" name="id[]" value="jka" /> 4</td>
-					<td align="center">Jabatan Kejuteraan Awam </td>	
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td  align="center">
-			<input type="hidden" name="cat" value="<?php echo $_REQUEST['cat']; ?>"/>
-			<input type="submit" name="orderProduct" value="Submit"/>
-		</td>
-	</tr>
-</table>
-	</form> -->
 <script type="text/javascript">
 	$(function () {
+
 		$( '[name="id[]"]').click(function(){
 			$( '[name="id[]"]').attr('checked', false );
 			$( this ).attr('checked', true );
 		});
+
+    $( '[name="service_copy"], [name="service_page"], [name="service_color"] ' ).on( 'keyup change', function () {
+
+      var 
+        copy  = $( '[name="service_copy"]' ).val(),
+        page  = $( '[name="service_page"]' ).val(),
+        color = $( '[name="service_color"]' ).val();
+
+      calPrice( color, copy, page );
+
+    });
+
+    function calPrice ( color, copy, page ) {
+
+        var 
+          cat = $( '#cat' ).val(),
+          fixedPrice = 0, total = 0;
+
+        if ( cat == 'print' ) {
+
+          if ( color == 'Color' ) {
+            fixedPrice = 0.25;
+          }
+          else {
+            fixedPrice = 0.20;
+          }
+        }
+        else {
+
+          if ( page > 0 && page <= 15 ) {
+            fixedPrice = 0.09;
+          }
+          else if ( page > 15 && page <= 50 ) {
+            fixedPrice = 0.07;
+          }
+          else if ( page > 50 && page <= 100 ) {
+            fixedPrice = 0.05;
+          }
+          else if( page > 100 ) {
+            fixedPrice = 0.04;
+          }
+
+        }
+
+        total = (( page * fixedPrice ) * copy );
+
+        $( '[name="service_price"]' ).val( total.toFixed(2) );
+        
+    }
+
 	});
 </script>
 
