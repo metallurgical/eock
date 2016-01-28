@@ -9,6 +9,8 @@ List of Files
 					<th>File Name</th>		
 					<th>Size of File</th>
 					<th>Download</th>
+					<th>No copy</th>
+					<th>Page</th>
 					<th>Price</th>
 					<th>Action</th>
 				</tr>
@@ -27,6 +29,8 @@ List of Files
 					<td><?php echo $data['service_file_size']; ?> kb</td>
 					<td>
 					<a href="myServiceDownload.php?service_file_id=<?php echo $data['service_file_id']; ?>">Download</a></td>
+					<td><?php echo $data['service_file_copy']; ?></td>        
+					<td><?php echo $data['service_file_page']; ?></td>
 					<td>RM <?php echo $data['service_file_price']; ?></td>
 			        <td> 
 			        	

@@ -29,12 +29,14 @@ if ( isset( $_POST['hantar'] ) ) {
                           student_id, 
                           service_jabatan,
                           service_cat,
+                          service_total_price,
                           service_status,
                           servis_date_created
                       ) VALUES( 
                           '".$_SESSION['user_id']."', 
                           '".$jabatan. "',
                           '".$cat."',
+                          '".$service_price."',
                           '0',
                           '".date('Y-m-d H:i:s')."')";
 			mysql_query($sql) or die ("Error: ".mysql_error());
@@ -65,7 +67,13 @@ if ( isset( $_POST['hantar'] ) ) {
 
 		}
 		else {
+
 			$lastId = $_REQUEST['lastId'];
+      $hh = mysql_query("select service_total_price from `services` where service_id = '".$lastId."'");
+      $datahh = mysql_fetch_array($hh);
+      $newPrice = $datahh['service_total_price'] + $service_price;
+      mysql_query("UPDATE `services` SET service_total_price = '".$newPrice."' where service_id = '".$lastId."'");
+      
 		}
 		
 

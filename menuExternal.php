@@ -73,6 +73,8 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category'] == 'admin' ) {
                 <ul>
                     <li><a href="reportProduct.php">Report Product</a></li>
                     <li><a href="reportService.php">Report Services</a></li>
+                    <li><a href="reportProductMonthly.php">Product Monthly</a></li>
+                    <li><a href="reportServiceMonthly.php">Service Monthly</a></li>
                  
                 </ul>
             </li>
