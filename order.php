@@ -108,24 +108,27 @@ if( isset( $_POST['orderProduct']) )
 				$datassss=mysql_fetch_assoc(mysql_query("select student_noMatric from `students` where student_id = '".$_SESSION['user_id']."'"));
 
 				$sm = $datassss['student_noMatric'];
-
-				/*require 'phpmailer/PHPMailerAutoload.php';
+				require 'phpmailer/PHPMailerAutoload.php';
+				//require 'phpmailer/class.phpmailer.php';
 				$mail = new PHPMailer;
+				//$mail->SMTPDebug = 3;
 				$body = "Product have been ordered by Student with Matric No $sm at ".date('d-m-y H:i:s');
 				$mail->SMTPAuth = true; 
-				$mail->Host = "smtp.mail.yahoo.com";
+				$mail->Host = "smtp.gmail.com";
+				//$mail->Port = 465; 
 				$mail->Port = 587; 
-				$mail->Username = "alamat_email_yahoo"; 
-				$mail->Password = "password_email_yahoo"; 
+				$mail->Username = "thunderwidedev@gmail.com"; 
+				$mail->Password = "thunderwidedev@1234"; 
 				$mail->isSMTP();
 				$mail->SMTPSecure = 'tls';
-				$mail->SMTPAuth = true;
-				$mail->setFrom('alamat_email_yahoo', 'Student');
-				$mail->addReplyTo('alamat_email_yahoo', 'First Last');
-				$mail->addAddress('alamat_email_gmail', 'Administrator');
+				//$mail->SMTPAuth = true;
+				$mail->setFrom('sistem@eock.com', 'System');
+				$mail->addReplyTo('noreply@yahoo.com', 'Administrator');
+				//$mail->addAddress('norlihazmey89@yahoo.com', 'Administrator');
+				$mail->addAddress('syidaeda@gmail.com', 'Administrator');
 				$mail->Subject = 'New message from student order[product]';
 				$mail->MsgHTML($body);
-				$mail->send();
+				
 
 				if (!$mail->send()) {
 				    unset($_SESSION['pId']);
@@ -133,13 +136,13 @@ if( isset( $_POST['orderProduct']) )
 				    echo 'alert("Error on sending email but product success orderr...");';
 				    echo 'window.location="resitCustomer.php?a='.$idOrder.'";';
 				    echo '</script>';
-				} else {*/
+				} else {
 				    unset($_SESSION['pId']);
 				    echo '<script language="javascript">';
 				    echo 'alert("Success ordering and email was sent to admin/staff email for future references.");';
 				    echo 'window.location="resitCustomer.php?a='.$idOrder.'";';
 				    echo '</script>';
-				//}
+				}
 
 			    
 				

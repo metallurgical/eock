@@ -47,23 +47,24 @@ if ( isset( $_POST['hantar'] ) ) {
 
         $sm = $datassss['student_noMatric'];
 
-        /*require 'phpmailer/PHPMailerAutoload.php';
+        require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer;
         $body = "Service have been ordered by Student with Matric No $sm at ".date('d-m-y H:i:s');
         $mail->SMTPAuth = true; 
-        $mail->Host = "smtp.mail.yahoo.com";
+        $mail->Host = "smtp.gmail.com";
         $mail->Port = 587; 
-        $mail->Username = "alamat_email_yahoo"; // ubah hok ni
-        $mail->Password = "password_email_yahoo"; // ubah hok ni
+        $mail->Username = "thunderwidedev@gmail.com"; 
+        $mail->Password = "thunderwidedev@1234";
         $mail->isSMTP();
         $mail->SMTPSecure = 'tls';
-        $mail->SMTPAuth = true;
-        $mail->setFrom('alamat_email_yahoo', 'Student'); // ubah hok ni
-        $mail->addReplyTo('alamat_email_yahoo', 'First Last'); // ubah hok ni
-        $mail->addAddress('alamat_email_gmail', 'Administrator'); // ubah hok ni
+        $mail->setFrom('sistem@eock.com', 'System');
+        $mail->addReplyTo('noreply@yahoo.com', 'Administrator');
+        //$mail->addAddress('norlihazmey89@yahoo.com', 'Administrator');
+        $mail->addAddress('syidaeda@gmail.com', 'Administrator');
         $mail->Subject = 'New message from student order[product]'; 
         $mail->MsgHTML($body);
-        $mail->send();*/
+        $mail->send();
+        
 
 		}
 		else {
