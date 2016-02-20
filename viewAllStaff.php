@@ -50,8 +50,7 @@ if(isset($_SESSION['UserIC']))
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<font size="+5" style="position:absolute; top:40px; left:135px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             
         </div>
@@ -109,7 +108,7 @@ if(isset($_SESSION['UserIC']))
 	         	<a href="profileStaff.php?d=<?php echo $data['staff_id']; ?>">
 	         		<input type="button" name="viewOrder" value="View"/>
 	         	</a> 
-	         	|<a href="delStaff.php?d='<?php echo $data['staff_id']; ?>'">
+	         	|<a href="delStaff.php?d=<?php echo $data['staff_id']; ?>">
 	         		<input type="button" name="delOrder" value="Delete"/>
 	         	</a>
 	         	</td>

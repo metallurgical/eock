@@ -19,7 +19,7 @@ if(isset($_GET['a']))
     # may remove 00h valued characters from end of plain text
     $plaintext_dec = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key,
                                     $ciphertext, MCRYPT_MODE_CBC, $iv_dec);*/
-	$sql123 = "SELECT order_id,student_id FROM `order` 
+	$sql123 = "SELECT order_id,student_id, order_totalPrice FROM `order` 
 			   WHERE order_id='$idd'";	
 	$query123 = mysql_query($sql123) or die ("Error: ".mysql_error());	
 	$data = mysql_fetch_assoc($query123);
@@ -31,10 +31,10 @@ if(isset($_GET['a']))
     $datast = mysql_fetch_assoc($queryst);
 
 
-	$matrix = $datast['student_noMatric'];
-	$name = $datast['student_name'];
-	$phone = $datast['student_phone'];
-	
+    $matrix = $datast['student_noMatric'];
+    $name   = $datast['student_name'];
+    $phone  = $datast['student_phone'];
+	$order_totalPrice = ltrim($data['order_totalPrice'], 0);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -48,8 +48,7 @@ if(isset($_GET['a']))
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<font size="+5" style="position:absolute; top:40px; left:135px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             
         </div>
@@ -81,6 +80,10 @@ if(isset($_GET['a']))
         <tr>
         	<td>No. Phone</td>
             <td colspan="3">: &nbsp;<label>0<?php echo $phone;?></label></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td colspan="3">: &nbsp;<label>RM <?php echo $order_totalPrice;?></label></td>
         </tr>
         <tr><td colspan="3">&nbsp;</td></tr>
 </table>

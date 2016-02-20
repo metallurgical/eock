@@ -9,8 +9,7 @@
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<font size="+6" style="position:absolute; top:40px; left:170px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             <div style="position:absolute; top:40px; left:80px;">
             Search Product : <input type="text" name="searchID" size="30" /><input type="button" name="submit" value="Search"/>

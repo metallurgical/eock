@@ -10,10 +10,15 @@ if ( isset( $_POST['hantar'] ) ) {
 
   if ( $_FILES['myFile']['name'] == "" ) {
 
-    $sql  = "UPDATE services set
+    /*$sql  = "UPDATE services set
                 service_copy = '".$service_copy."' 
                 WHERE service_id = '".$service_id."'";
-      mysql_query($sql) or die ("Error: ".mysql_error());
+      mysql_query($sql) or die ("Error: ".mysql_error());*/
+      $sql1  = "UPDATE service_files SET
+                          service_file_copy = '".$service_file_copy."'
+                  WHERE service_file_id = '".$service_file_id."'";
+
+        mysql_query($sql1) or die ("Error: ".mysql_error());
 
   }
   else {
@@ -35,15 +40,16 @@ if ( isset( $_POST['hantar'] ) ) {
       echo '</script>';
     }
 
-      $sql  = "UPDATE services set
+      /*$sql  = "UPDATE services set
                 service_copy = '".$service_copy."' 
                 WHERE service_id = '".$service_id."'";
-      mysql_query($sql) or die ("Error: ".mysql_error());
+      mysql_query($sql) or die ("Error: ".mysql_error());*/
 
       $sql1  = "UPDATE service_files SET
                           service_file_name = '".$name. "',
                           service_file_size = '".$size."',
                           service_file_type = '".$type."',
+                          service_file_copy = '".$service_file_copy."',
                           service_file_content = '".$content1."'
                   WHERE service_file_id = '".$service_file_id."'";
 
@@ -75,8 +81,7 @@ if ( isset( $_POST['hantar'] ) ) {
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<font size="+5" style="position:absolute; top:40px; left:135px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             
         </div>
@@ -93,7 +98,7 @@ if ( isset( $_POST['hantar'] ) ) {
 <?php
 if ( isset($_REQUEST['service_id'] ) ) {
 
-  $sel = mysql_query('SELECT *FROM services WHERE service_id = "'.$_REQUEST['service_id'].'"');
+  $sel = mysql_query('SELECT *FROM service_files WHERE service_file_id = "'.$_REQUEST['service_file_id'].'"');
   $getSel = mysql_fetch_array( $sel );
 }?>
 	  <table align="center" cellspacing="1" cellpadding="1" width="544" bordercolor="#999999">	  
@@ -114,7 +119,7 @@ if ( isset($_REQUEST['service_id'] ) ) {
               <tr>
                 <td>No of Copy</td>
                 <td>:</td>
-                <td><input type="text" name="service_copy" value="<?php echo $getSel['service_copy']; ?>" /></td>
+                <td><input type="text" name="service_file_copy" value="<?php echo $getSel['service_file_copy']; ?>" /></td>
               </tr>
                                 
               <tr>

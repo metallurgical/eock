@@ -33,9 +33,7 @@ $sql = "SELECT * FROM `product` where product_category='Stationary' and product_
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<img src="images/eock2.jpg" />
-<font size="+5" style="position:absolute; top:40px; left:135px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             
         </div>

@@ -109,7 +109,7 @@ if( isset( $_POST['orderProduct']) )
 
 				$sm = $datassss['student_noMatric'];
 
-				require 'phpmailer/PHPMailerAutoload.php';
+				/*require 'phpmailer/PHPMailerAutoload.php';
 				$mail = new PHPMailer;
 				$body = "Product have been ordered by Student with Matric No $sm at ".date('d-m-y H:i:s');
 				$mail->SMTPAuth = true; 
@@ -133,13 +133,13 @@ if( isset( $_POST['orderProduct']) )
 				    echo 'alert("Error on sending email but product success orderr...");';
 				    echo 'window.location="resitCustomer.php?a='.$idOrder.'";';
 				    echo '</script>';
-				} else {
+				} else {*/
 				    unset($_SESSION['pId']);
 				    echo '<script language="javascript">';
 				    echo 'alert("Success ordering and email was sent to admin/staff email for future references.");';
 				    echo 'window.location="resitCustomer.php?a='.$idOrder.'";';
 				    echo '</script>';
-				}
+				//}
 
 			    
 				
@@ -167,8 +167,7 @@ if( isset( $_POST['orderProduct']) )
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<font size="+5" style="position:absolute; top:40px; left:135px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             
         </div>

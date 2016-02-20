@@ -47,9 +47,9 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category'] == 'admin' ) {
         <ul>
             <li><a href="home.php" >Home</a></li>
             <li><a href="productStaff.php">Product</a>
-                <ul>
+                <!-- <ul> -->
                     <?php
-                    $sqlMenu   = "SELECT * FROM `product` group by product_category";
+                    /*$sqlMenu   = "SELECT * FROM `product` group by product_category";
                     $queryMenu = mysql_query( $sqlMenu ) or die("MySQL Error: " . mysql_error()); 
                     $rowMenu   = mysql_num_rows( $queryMenu );
                         
@@ -57,17 +57,17 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category'] == 'admin' ) {
                     while( $dataMenu = mysql_fetch_array( $queryMenu )) {
                         $categoryMenu  = $dataMenu['product_category'];
                         echo '<li><a href="callFood.php?category='.$categoryMenu.'">'.$categoryMenu.'</a></li>';
-                    }
+                    }*/
                     ?>
-                </ul>
+                <!-- </ul> -->
             </li>
             </li>
             <li><a href="service.php">Servis</a>
-                <ul>
+                <!-- <ul>
                     <li><a href="Printer.php">Printer</a></li>
                     <li><a href="Photostat.php">Photostat</a></li>
                  
-                </ul>
+                </ul> -->
             </li>
             <li><a href="#">Report</a>
                 <ul>
@@ -139,9 +139,9 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category'] != 'admin' ) {
         <ul>
             <li><a href="home.php" >Home</a></li>
             <li><a href="productStaff.php">Product</a>
-                <ul>
+                <!-- <ul> -->
                     <?php
-                    $sqlMenu   = "SELECT * FROM `product` group by product_category";
+                    /*$sqlMenu   = "SELECT * FROM `product` group by product_category";
                     $queryMenu = mysql_query( $sqlMenu ) or die("MySQL Error: " . mysql_error()); 
                     $rowMenu   = mysql_num_rows( $queryMenu );
                         
@@ -149,9 +149,9 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category'] != 'admin' ) {
                     while( $dataMenu = mysql_fetch_array( $queryMenu )) {
                         $categoryMenu  = $dataMenu['product_category'];
                         echo '<li><a href="callFood.php?category='.$categoryMenu.'">'.$categoryMenu.'</a></li>';
-                    }
+                    }*/
                     ?>
-                </ul>
+                <!-- </ul> -->
             </li>
             </li>
             <li><a href="service.php">Servis</a>

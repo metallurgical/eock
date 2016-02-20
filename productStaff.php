@@ -45,8 +45,7 @@ if(isset($_SESSION['UserIC']))
 
 <body>
 <div id="header">
-<img src="images/eock2.jpg" />
-<font size="+5" style="position:absolute; top:40px; left:135px;">ELECTRONIC OPERATIONAL CENTER KIOSK</font>
+<?php include( 'header.php' ); ?>
         <div id="header2">
             
         </div>
@@ -85,7 +84,7 @@ if(isset($_SESSION['UserIC']))
 		<td  align="center"><?php echo $priceUnit[$i]; ?></td>
 		<td  align="center"><?php echo $stock[$i]; ?></td>       
 		<td  align="center"><?php echo $Pstatus[$i]; ?></td>
-         <td  align="center"> <a href="viewProduct.php?d='<?php echo $id[$i]; ?>'" params="lightwindow_width=800,lightwindow_height=300" class="lightwindow page-options"><input type="button" name="viewProduct" value="View"/></a></td>
+         <td  align="center"> <a href="viewProduct.php?d=<?php echo $id[$i]; ?>" params="lightwindow_width=800,lightwindow_height=300" class="lightwindow page-options"><input type="button" name="viewProduct" value="View"/></a></td>
 		</tr>
 		<?php }?>
 </table>
