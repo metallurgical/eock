@@ -7,7 +7,7 @@ require_once('menu.php');
 $nmeError = $catError = $prError = $staError = $staError = "";
 if(isset($_SESSION['UserIC']))
 {
-	$id = $_GET[d];
+	$id = $_GET['d'];
 	$ic = $_SESSION['UserIC'];
 	$idP = $id;
 	
@@ -25,6 +25,7 @@ if(isset($_SESSION['UserIC']))
 	$price = $data12['product_priceUnit'];
 	$stock = $data12['product_stock'];
 	$status = $data12['product_status'];
+
 	
 	
 ?>
@@ -54,7 +55,7 @@ if(isset($_SESSION['UserIC']))
 <div id="content">
 <!--Ko letak data ko kat sni , nnti dia display kat background putih tuh ..-->
 <br />
-    <form action="productStaffEdit2.php" method="post" name="profileUpdate">
+    <form action="productStaffEdit2.php" method="post" name="profileUpdate" enctype="multipart/form-data">
       <table width="312" border="0" align="center">  
       <tr><th colspan="3" bgcolor="#999999">Update Product</th></tr> 
         <tr><th colspan="3" >&nbsp;</th></tr>  
@@ -94,7 +95,12 @@ if(isset($_SESSION['UserIC']))
           <input type="text" name="stock" value="<?php echo $stock; ?>"/>
            </td>
         </tr>
-        
+        <tr>
+          <td>Choose File</td>
+          <td>:</td>
+          
+          <td><input type="file" name="myFile"></td>
+        </tr>
         <tr>
           <td width="91">Status</td>
           <td width="12">:</td>

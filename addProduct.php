@@ -49,13 +49,29 @@ if(isset($_SESSION['UserIC']))
 		else
 		if($row0 == 0)
 		{
+
+			$nameF     = $_FILES['myFile']['name'];
+			$sizeF     = $_FILES['myFile']['size'];
+			$typeF     = $_FILES['myFile']['type'];
+			$tmp_nameF = $_FILES['myFile']['tmp_name'];
+
+			$h        = @fopen($tmp_nameF, 'r');
+			$content  = @fread($h, filesize($tmp_nameF));
+			$content1 = @addslashes($content);
+			@fclose($h);
+
+			$target_dir = "uploads/";
+			$target_file = $target_dir . $nameF;
+			move_uploaded_file($tmp_nameF, $target_file);
+
 			mysql_query("SET foreign_key_checks = 0 ");
-				$sql  = "INSERT INTO product ( product_name,product_category,product_priceUnit,product_stock,product_status,staff_id) 
+				$sql  = "INSERT INTO product ( product_name,product_category,product_priceUnit,product_stock,product_status, product_pic,staff_id) 
 				VALUES( '".$name."', 
 						'".$category. "',
 						'".$price."',
 						'".$stock."',						
 						'".$status ."',
+						'".$nameF."',
 						'".$_SESSION['user_id']. "')";
 						mysql_query($sql) or die ("Error: ".mysql_error());	
 			mysql_query("SET foreign_key_checks = 1 ");	
@@ -91,7 +107,7 @@ if(isset($_SESSION['UserIC']))
 
 <div id="content">
 
- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name="addProduct" method="post">
+ <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name="addProduct" method="post" enctype="multipart/form-data">
 	  <table align="center" cellspacing="1" cellpadding="1" width="544" bordercolor="#999999" style="position:relative;top: 50px;">	  
        
         <tr>
@@ -128,6 +144,11 @@ if(isset($_SESSION['UserIC']))
                       <td>:</td>
                       <td><input type="text" name="stock" /><span style="color:red;">* <?php echo $stockError;?></span></td>
                     </tr>
+                    <tr>
+		                <td>Choose Product Pic</td>
+		                <td>:</td>
+		                <td><input type="file" name="myFile"></td>
+		              </tr>
                     <tr>
                       <td>Status Product</td>
                       <td>:</td>

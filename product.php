@@ -10,12 +10,13 @@ $sql = "SELECT * FROM `product`";
   		while($data = mysql_fetch_array($query))
 		{
 		
-	$id[$i] = $data['product_id'];
-	$name[$i] = $data['product_name'];
-	$category[$i] = $data['product_category'];
-	$priceUnit[$i] = $data['product_priceUnit'];
-	$stock[$i] = $data['product_stock'];
-	$i++;
+			$id[$i]         = $data['product_id'];
+			$name[$i]       = $data['product_name'];
+			$category[$i]   = $data['product_category'];
+			$priceUnit[$i]  = $data['product_priceUnit'];
+			$stock[$i]      = $data['product_stock'];
+			$productPic[$i] = $data['product_pic'];
+			$i++;
 	
 		}
 		
@@ -52,6 +53,7 @@ $sql = "SELECT * FROM `product`";
 <tr bgcolor="#FF9900">
 <th width="32">&nbsp;</th>
 <th width="33">No.</th>
+<th width="33">Product Picture</th>
 <th width="229">Name</th>
 <th width="109">Category</th>
 <th width="136">RM per unit</th>
@@ -63,7 +65,19 @@ $sql = "SELECT * FROM `product`";
 		?> 
 		<tr style="overflow:scroll;">
         <td align="center"><input type="checkbox" name="id[]" value="<?php echo $id[$i]; ?>" /></td>
-		<td align="center"><?php echo $i+1; ?></td>		
+		<td align="center"><?php echo $i+1; ?></td>
+		<td align="center">
+			<?php
+			if ( $productPic[$i] == "" ) {
+				$imgPath = 'images/laptops_product_page.jpg';
+			}
+			else {
+				$imgPath = 'uploads/'.$productPic[$i];
+			}?>
+			<img src="<?php echo $imgPath; ?>" width="50" heigh="50">
+
+
+		</td>			
 		<td  align="center"><?php echo $name[$i]; ?></td>
         <td  align="center"><?php echo $category[$i]; ?></td>
 		<td  align="center"><?php echo $priceUnit[$i]; ?></td>

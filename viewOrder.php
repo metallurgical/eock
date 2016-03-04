@@ -49,7 +49,42 @@ $sql = "SELECT * from `order` o, product p, product_order po WHERE o.order_id = 
 	
 	
 ?>
-<div id="ipsum" >
+<html>
+<head>
+
+<style type="text/css">
+#ipsum{font-size:17px;}
+#ipsum p {
+		padding: 10px 0 0 0;
+		color: #666666;
+		line-height: 25px;
+		
+		clear: both;
+		font-size:20px;
+		background-color:#CCC;
+		text-align:center;
+		
+}
+
+#a {
+
+		padding: 10px 0 0 0;
+		background-color:#CCC;
+		
+	
+}
+</style>
+<script>
+/*printDivCSS = new String ('<link href="myprintstyle.css" rel="stylesheet" type="text/css">')
+function printDiv(divId) {
+    window.frames["print_frame"].document.body.innerHTML=printDivCSS + document.getElementById(divId).innerHTML;
+    window.frames["print_frame"].window.focus();
+    window.frames["print_frame"].window.print();
+}*/
+</script>
+</head>
+<body>
+<div id="ipsum">
 <p align="center">Order Details</p> <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" name="updateORDER">
 <table width="680" height="120" align="center" cellpadding="10" cellspacing="2" >
 <tr>
@@ -132,32 +167,16 @@ $sql = "SELECT * from `order` o, product p, product_order po WHERE o.order_id = 
        
         
         <tr>
-        <td colspan="5" align="right"><input type="hidden" name="oID" value="<?php echo $orderID;?>" /><input type="submit" name="aaaa" value="APPROVE" /></td>
+        <td colspan="5" align="right">
+        	<input type="hidden" name="oID" value="<?php echo $orderID;?>" />
+        	<input type="submit" name="aaaa" value="APPROVE" />
+        	<input type="button" name="aaaa1" value="Print Details" onclick="printDiv('ipsum')"/>
+        </td>
         </tr>
        
 	</table> </form>
     <?php }?>
 </div>
 
-<style type="text/css">
-#ipsum{font-size:17px;}
-#ipsum p {
-		padding: 10px 0 0 0;
-		color: #666666;
-		line-height: 25px;
-		
-		clear: both;
-		font-size:20px;
-		background-color:#CCC;
-		text-align:center;
-		
-}
-
-#a {
-
-		padding: 10px 0 0 0;
-		background-color:#CCC;
-		
-	
-}
-</style>
+</body>
+</html>

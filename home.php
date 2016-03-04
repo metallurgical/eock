@@ -41,6 +41,20 @@ if(isset($_SESSION['UserIC']))
 	<script type="text/javascript" src="js/prototype.js"></script>
 	<script type="text/javascript" src="js/effects.js"></script>
 	<script type="text/javascript" src="js/lightwindow.js"></script>
+	<script>
+
+function printDiv(divId) {
+	var prtContent = document.getElementById(divId);
+	var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+	//WinPrint.document.write(cssLinkTag)
+	WinPrint.document.write(prtContent.innerHTML);
+	WinPrint.document.close();
+	WinPrint.focus();
+	WinPrint.print();
+	WinPrint.close();
+    
+}
+</script>
 </head>
 
 <body>
