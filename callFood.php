@@ -58,7 +58,7 @@ while( $data = mysql_fetch_array( $query ) ) {
 				$imgPath = 'images/laptops_product_page.jpg';
 			}
 			else {
-				$imgPath = 'uploads/'.$data[$i];
+				$imgPath = 'uploads/'.$data['product_pic'];
 			}?>
 			<img src="<?php echo $imgPath; ?>" width="50" heigh="50">
 
