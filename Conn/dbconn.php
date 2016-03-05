@@ -1,6 +1,6 @@
 <?php /* php& mysqldb connection file */
 $user = "root"; //mysqlusername
-$pass = "abc123"; //mysqlpassword
+$pass = ""; //mysqlpassword
 $host = "localhost"; //server name or ipaddress
 $dbname= "eock"; //your db name
 

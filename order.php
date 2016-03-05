@@ -108,7 +108,7 @@ if( isset( $_POST['orderProduct']) )
 				$datassss=mysql_fetch_assoc(mysql_query("select student_noMatric from `students` where student_id = '".$_SESSION['user_id']."'"));
 
 				$sm = $datassss['student_noMatric'];
-				require 'phpmailer/PHPMailerAutoload.php';
+				/*require 'phpmailer/PHPMailerAutoload.php';
 				//require 'phpmailer/class.phpmailer.php';
 				$mail = new PHPMailer;
 				//$mail->SMTPDebug = 3;
@@ -124,25 +124,25 @@ if( isset( $_POST['orderProduct']) )
 				//$mail->SMTPAuth = true;
 				$mail->setFrom('sistem@eock.com', 'System');
 				$mail->addReplyTo('noreply@yahoo.com', 'Administrator');
-				//$mail->addAddress('norlihazmey89@yahoo.com', 'Administrator');
 				$mail->addAddress('syidaeda@gmail.com', 'Administrator');
 				$mail->Subject = 'New message from student order[product]';
-				$mail->MsgHTML($body);
+				$mail->MsgHTML($body);*/
 				
 
-				if (!$mail->send()) {
+				//if (!$mail->send()) {
 				    unset($_SESSION['pId']);
 				    echo '<script language="javascript">';
-				    echo 'alert("Error on sending email but product success orderr...");';
+				    //echo 'alert("Error on sending email but product success orderr...");';
+				    echo 'alert("Product success orderr...");';
 				    echo 'window.location="resitCustomer.php?a='.$idOrder.'";';
 				    echo '</script>';
-				} else {
+				/*} else {
 				    unset($_SESSION['pId']);
 				    echo '<script language="javascript">';
 				    echo 'alert("Success ordering and email was sent to admin/staff email for future references.");';
 				    echo 'window.location="resitCustomer.php?a='.$idOrder.'";';
 				    echo '</script>';
-				}
+				}*/
 
 			    
 				

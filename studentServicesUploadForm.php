@@ -47,7 +47,7 @@ if ( isset( $_POST['hantar'] ) ) {
 
         $sm = $datassss['student_noMatric'];
 
-        require 'phpmailer/PHPMailerAutoload.php';
+        /*require 'phpmailer/PHPMailerAutoload.php';
         $mail = new PHPMailer;
         $body = "Service have been ordered by Student with Matric No $sm at ".date('d-m-y H:i:s');
         $mail->SMTPAuth = true; 
@@ -63,7 +63,7 @@ if ( isset( $_POST['hantar'] ) ) {
         $mail->addAddress('syidaeda@gmail.com', 'Administrator');
         $mail->Subject = 'New message from student order[product]'; 
         $mail->MsgHTML($body);
-        $mail->send();
+        $mail->send();*/
         
 
 		}
