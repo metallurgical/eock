@@ -42,7 +42,7 @@ require_once('Conn/dbconn.php');
 		<th>Action</th>
 	</tr>
 <?php 	
-$i = 0;
+$i = 1;
 
 $sql   = "SELECT * FROM `order` where student_id ='".$_SESSION['user_id']."' group by order_id ";
 $query = mysql_query($sql) or die("MySQL Error: " . mysql_error());	
@@ -50,7 +50,7 @@ $row   = mysql_num_rows($query);
 
 while( $data = mysql_fetch_array( $query ) ) { 
 ?> 
-	<tr style="overflow:scroll;"><td><?php echo $i+1; ?></td>		
+	<tr style="overflow:scroll;"><td><?php echo $i++; ?></td>		
 		<td><?php echo $data['order_id']; ?></td>        
 		<td><?php echo $data['order_date']; ?></td>       
 		<td><?php echo $data['order_status']; ?></td>

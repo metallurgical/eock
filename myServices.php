@@ -43,7 +43,7 @@ require_once('Conn/dbconn.php');
 		<th>Action</th>
 	</tr>
 <?php 	
-$i = 0;
+$i = 1;
 $j = 0;
 $k = 0;
 
@@ -53,7 +53,7 @@ $row   = mysql_num_rows($query);
 
 while( $data = mysql_fetch_array( $query ) ) { 
 ?> 
-	<tr style="overflow:scroll;"><td><?php echo $i+1; ?></td>		
+	<tr style="overflow:scroll;"><td><?php echo $i++; ?></td>		
 		<td><?php echo $data['service_jabatan']; ?></td>        
 		<td><?php echo $data['servis_date_created']; ?></td>
 		<td><?php echo $data['service_cat']; ?></td>

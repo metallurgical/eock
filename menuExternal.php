@@ -9,7 +9,7 @@ if ( !isset( $_SESSION['category'] ) ) { //*************************************
              <li><a href="product.php">Product</a>
                 <ul>
                     <?php
-                    $sqlMenu   = "SELECT * FROM `product` group by product_category";
+                    $sqlMenu   = "SELECT distinct(product_category) as product_category FROM `product` group by product_category";
                     $queryMenu = mysql_query( $sqlMenu ) or die("MySQL Error: " . mysql_error()); 
                     $rowMenu   = mysql_num_rows( $queryMenu );
                         
@@ -100,9 +100,9 @@ else if ( isset( $_SESSION['category'] ) && $_SESSION['category']== 'student' ) 
              <li><a href="product.php">Product</a>
                 <ul>
                     <?php
-                    $sqlMenu   = "SELECT * FROM `product` group by product_category";
-                    $queryMenu = mysql_query( $sqlMenu ) or die("MySQL Error: " . mysql_error()); 
-                    $rowMenu   = mysql_num_rows( $queryMenu );
+                    $sqlMenu1   = "SELECT distinct(product_category) as product_category FROM `product` group by product_category";
+                    $queryMenu = mysql_query( $sqlMenu1 ) or die("MySQL Error: " . mysql_error()); 
+                    $rowMenu   = mysql_num_rows( $queryMenu1 );
                         
                     $i = 0;
                     while( $dataMenu = mysql_fetch_array( $queryMenu )) {

@@ -45,13 +45,13 @@ $row   = mysql_num_rows($query);
 <th width="119">In-Stock</th>
 </tr>
 <?php 	
-$i = 0;
+$i = 1;
 
 while( $data = mysql_fetch_array( $query ) ) { 
 ?> 
 	<tr style="overflow:scroll;">
         <td align="center"><input type="checkbox" name="id[]" value="<?php echo $data['product_id']; ?>" /></td>
-		<td align="center"><?php echo $i+1; ?></td>	
+		<td align="center"><?php echo $i++; ?></td>	
 		<td align="center">
 			<?php
 			if ( $data['product_pic'] == "" ) {
